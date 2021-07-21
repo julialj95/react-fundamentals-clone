@@ -3,16 +3,17 @@
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script type="text/babel">
-    const propTypes = {
-      string(props, propName, componentName) {
-        const type = typeof props[propName]
-        if (type !== 'string') {
-          return new Error(`Hey, the component ${componentName} needs to ${propName} to be a type of
-        "string" but was passed a ${type}`)
-        }
-      },
-    }
+    // const propTypes = {
+    //   string(props, propName, componentName) {
+    //     const type = typeof props[propName]
+    //     if (type !== 'string') {
+    //       return new Error(`Hey, the component ${componentName} needs to ${propName} to be a type of
+    //     "string" but was passed a ${type}`)
+    //     }
+    //   },
+    // }
 
     function Message({subject, greeting}) {
       return (
@@ -23,8 +24,8 @@
     }
 
     Message.propTypes = {
-      subject: propTypes.string,
-      greeting: propTypes.string,
+      subject: PropTypes.string.isRequired,
+      greeting: PropTypes.string.isRequired,
     }
 
     const element = (
