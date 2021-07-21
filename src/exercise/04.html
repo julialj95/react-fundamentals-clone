@@ -5,22 +5,21 @@
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
   <script type="text/babel">
     function message(props) {
-      const messageDiv = React.createElement(
-        'div',
-        {className: 'container'},
-        props.children,
-      )
-      return messageDiv
+      return <div className="container">{props.children}</div>
     }
+    // const helloElement = React.createElement(message, {children: 'Hello World'})
+    // const goodbyeElement = React.createElement(message, {
+    //   children: 'Goodbye World',
+    // })
 
     const element = (
       <div className="container">
-        {message({children: 'Hello World'})}
-        {message({children: 'Goodbye World'})}
+        <message>Hello World</message>
+        <br />
+        <message>GoodbyeWorld</message>
       </div>
     )
 
-    // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
     ReactDOM.render(element, document.getElementById('root'))
   </script>
 </body>
