@@ -15,22 +15,22 @@ function UsernameForm({onSubmitUsername}) {
     setError(isLowerCase ? null : 'Username must be lowercase.')
   }
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            ref={usernameInputRef}
-            type="text"
-            id="username"
-            name="username"
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-      {error ? <p>{error}</p> : null}
-    </>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="username">Username:</label>
+        <input
+          ref={usernameInputRef}
+          type="text"
+          id="username"
+          name="username"
+          onChange={handleChange}
+        />
+      </div>
+      <div style={{color: 'red'}}>{error}</div>
+      <button disabled={error} type="submit">
+        Submit
+      </button>
+    </form>
   )
 }
 
